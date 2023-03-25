@@ -5,6 +5,7 @@
         None,
         Cat,
         Rat,
+        Frog,
         Owl
     }
 }
