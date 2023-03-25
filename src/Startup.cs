@@ -23,7 +23,9 @@ namespace HogwartsHouses
         {
             services.AddControllers();
             services.AddSingleton<IRepository<Room>, InMemoryRoomRepository>();
+            services.AddSingleton<IRepository<Student>, StudentRepository>();
             services.AddTransient<IRoomService, RoomService>();
+            services.AddTransient<IStudentService, StudentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
