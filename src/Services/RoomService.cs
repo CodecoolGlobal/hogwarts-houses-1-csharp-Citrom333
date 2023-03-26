@@ -37,12 +37,16 @@ namespace HogwartsHouses.Services
             _repository.Update(new Room(id, roomDetails.Item1, roomDetails.Item2));
         }
 
-        public void PutStudentToRoom(int roomId, int studentId)
+        public bool PutStudentToRoom(int roomId, int studentId)
         {
             var room = _repository.All().ToList().FirstOrDefault(r => r.Id == roomId);
             var student= StudentRepository.All().ToList().FirstOrDefault(s => s.StudentId == studentId);
+            bool success = false;
             if (StudentRepository.AddRoomToStudent(room, student))
-                _repository.AddRoomToStudent(room, student);
+            {
+                success = _repository.AddRoomToStudent(room, student);
+            }
+            return success;
         }
 
         public List<Room> GetRoomsWithFreeBed()
