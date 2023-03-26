@@ -1,0 +1,40 @@
+@using HogwartsHouses.Models
+@model HogwartsHouses.Models.ViewModelForBoth
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+      @Html.Partial("~/Shared/_Header.cshtml")
+</head>
+<body>
+<style>
+    body {background-color: #721c24; vertical-align: center}
+    table    {color: antiquewhite; font-size: large; align-self: center; font-family: Arial,serif; }
+</style>
+<div>
+    @using (Html.BeginForm("PutStudentToRoom", "Room", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>The room number : </td>
+                <td>@Html.TextBoxFor(both => both.Room.Id)</td>
+            </tr>
+            <tr>
+                <td>Id of student to move in: </td>
+                <td>@Html.TextBoxFor(both => both.Student.StudentId)</td>
+            </tr>
+            <tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit"/>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+</body>
+</html>

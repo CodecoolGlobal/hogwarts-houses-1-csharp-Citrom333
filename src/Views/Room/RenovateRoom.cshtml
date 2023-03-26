@@ -1,0 +1,50 @@
+@using HogwartsHouses.Models.Types
+@model HogwartsHouses.Models.Room
+
+@{
+    Layout = null;
+}
+<html>
+<head>
+    @Html.Partial("~/Shared/_Header.cshtml")
+</head>
+<body>
+<style>
+    body {background-color: #721c24; vertical-align: center}
+    table    {color: antiquewhite; font-size: large; align-self: center; font-family: Arial,serif; }
+</style>
+@using (Html.BeginForm("UpdateRoom", "Room", FormMethod.Post))
+{
+    <table>
+          <tr>
+                    <td>Number of room to renovate </td>
+                    <td>@Html.TextBoxFor(r => r.Id)</td>
+                </tr>
+        <tr>
+            <td>Number of beds: </td>
+            <td>@Html.TextBoxFor(r => r.NumberOfBeds)</td>
+        </tr>
+        <tr>
+            <td>Is it room for boys, or girls? </td>
+            <td>
+                @Html.DropDownListFor(room => room.RoomForBoys, new List<SelectListItem>()
+                {
+                    new SelectListItem() { Text = "Boys", Value = "True" },
+                    new SelectListItem() { Text = "Girls", Value = "False" }
+                })
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit"/>
+            </td>
+        </tr>
+    </table>
+}
+<style>
+    img {margin: 0; position: absolute;top: 50%;left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+</style>
+<img src="../images/roomOfreq.jpg" alt=”HroomOfReq” width="50%" >
+</body> 
+</html>
