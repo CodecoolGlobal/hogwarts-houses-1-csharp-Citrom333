@@ -1,0 +1,36 @@
+@using HogwartsHouses.Models
+@model HogwartsHouses.Models.Student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.Partial("~/Shared/_Header.cshtml")
+</head>
+<body>
+<style>
+    body {background-color: #721c24; vertical-align: center}
+    table    {color: antiquewhite; font-size: large; align-self: center; font-family: Arial,serif; }
+</style>
+<div>
+    @using (Html.BeginForm("GetStudents","Student", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>Who are you looking for? (ID) : </td>
+                <td>@Html.TextBoxFor(s => s.StudentId)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Submit"/>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+</body>
+</html>

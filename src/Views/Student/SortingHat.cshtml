@@ -1,0 +1,44 @@
+@using HogwartsHouses.Models.Types
+@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    @Html.Partial("~/Shared/_Header.cshtml")
+</head>
+<body>
+<style>
+    body {background-color: #721c24; vertical-align: center}
+    h2 {color: antiquewhite; font-size: xx-large; align-self: center; }
+    p    {color: antiquewhite; font-size: large; align-self: center; }
+</style>  
+<div>
+    <h2>@ViewData["name"] is in @ViewData["house"]</h2>
+    @switch (ViewData["house"])
+    {
+        case HouseType.Gryffindor:
+            <p>Gryffindor, where dwell the brave at heart!</p>
+            <iframe width="8%" height="8%" src="https://www.youtube.com/embed/QIMtW4Jh1Xo?autoplay=1&rel=0&autohide=1" allow="autoplay" autohide="1"></iframe>
+            break;
+        case HouseType.Hufflepuff:
+            <p>You might belong in Hufflepuff, Where they are just and loyal, Those patient Hufflepuffs are true And unafraid of toil</p>
+           <iframe width="8%" height="8%" src="https://www.youtube.com/embed/VfZ1xZTF_RA?autoplay=1"  allow="autoplay" ></iframe> break;
+        case HouseType.Ravenclaw:
+            <p>Or yet in wise old Ravenclaw, if you've a ready mind, where those of wit and learning, will always find their kind</p>
+            <iframe width="8%" height="8%" src="https://www.youtube.com/embed/O9XVYs-aSW0?autoplay=1" allow="autoplay" ></iframe>
+            break;
+        case HouseType.Slytherin:
+            <p>We'll teach just those whose ancestry is purest. </p>
+            <iframe width="8%" height="8%" src="https://www.youtube.com/embed/ozC4uWuJ-d0?autoplay=1" allow="autoplay"></iframe>
+            break;
+        default:
+            break;
+    }
+</div>
+</body>
+</html>
