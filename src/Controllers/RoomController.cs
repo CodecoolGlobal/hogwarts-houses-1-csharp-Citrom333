@@ -43,7 +43,7 @@ public class RoomController : Controller
         _roomService.DeleteRoom(id);
     }
 
-    [HttpDelete("RenovateRoom/{id}")]
+    [HttpPut("RenovateRoom/{id}")]
     public void UpdateRoom(int id, [FromBody] Tuple<int, bool> roomDetails)
     {
         _roomService.UpdateRoom(id, roomDetails);
