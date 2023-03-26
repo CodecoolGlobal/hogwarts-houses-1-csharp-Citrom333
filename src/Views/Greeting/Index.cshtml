@@ -1,0 +1,27 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+     @Html.Partial("~/Shared/_Header.cshtml")
+</head>
+<body>
+<style>
+    body {background-color: #721c24; vertical-align: center}
+    p    {color: antiquewhite; font-size: xxx-large; align-self: center; }
+</style>
+
+<p>@ViewData["Greeting"]</p>
+<style>
+    img {margin: 0; position: absolute;top: 50%;left: 50%; -ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+</style>
+<img src="images/6137929c4b96600004f676fe.png" alt=”Hogwarts_Logo” width="70%" height="70%">
+</body>
+</html>
