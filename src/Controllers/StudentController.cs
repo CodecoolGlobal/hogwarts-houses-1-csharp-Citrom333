@@ -37,7 +37,7 @@ public class StudentController : Controller
     {
         _studentService.DeleteStudent(id);
     }
-    [HttpDelete("UpdateStudent/{id}")]
+    [HttpPut("UpdateStudent/{id}")]
     public void UpdateStudent(int id, [FromBody] Student studentDetails)
     {
         _studentService.UpdateStudent(new Student(id, studentDetails.Name, studentDetails.Gender,studentDetails.Pet, studentDetails.House));
