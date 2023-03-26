@@ -15,6 +15,7 @@ namespace HogwartsHouses.Controllers;
 public class StudentController : Controller
 {
     private IStudentService _studentService;
+    private Random _random = new Random();
 
     public StudentController(IStudentService studentService)
     {
@@ -82,7 +83,7 @@ public class StudentController : Controller
         string name = student.Name;
         Gender gender = student.Gender;
         PetType pet = student.Pet;
-        HouseType house = student.House;
+        HouseType house = (HouseType)_random.Next(1, 5);
         if (name == null || gender == 0 || pet == 0 || house == 0)
         {
             return View("WrongFillOut");
