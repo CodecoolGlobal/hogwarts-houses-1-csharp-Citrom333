@@ -26,6 +26,7 @@ namespace HogwartsHouses
             services.AddSingleton<IRepository<Student>, StudentRepository>();
             services.AddTransient<IRoomService, RoomService>();
             services.AddTransient<IStudentService, StudentService>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +48,6 @@ namespace HogwartsHouses
             app.UseRouting();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
