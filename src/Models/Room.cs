@@ -25,7 +25,22 @@ namespace HogwartsHouses.Models
         {
             
         }
+        private string ListOfStudentsInThisRoom()
+        {
+            var students = "";
+            foreach (var student in OccupiedBeds)
+            {
+                students += $"{student.Name}, ";
+            }
 
+            return students;
+        }
+        public override string ToString()
+        {
+            return
+                $"Room number: {Id}, number of beds: {NumberOfBeds}. This is room of {(RoomForBoys ? "boys" : "girls")}. Students living in this room: " +
+                $"{ListOfStudentsInThisRoom()} ";
+        }
   
     }
 }
