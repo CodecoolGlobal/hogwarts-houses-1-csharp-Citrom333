@@ -43,20 +43,24 @@ namespace HogwartsHouses.DAL
                 {
                     room.NumberOfBeds = toUpdate.NumberOfBeds;
                     room.RoomForBoys = toUpdate.RoomForBoys;
+                    room.OccupiedBeds.Clear();
                 }
             }
         }
 
         public bool AddRoomToStudent(Room room, Student student)
         {
+            if (room.OccupiedBeds.Capacity < 0)
+                return false;
             foreach (var r in _rooms)
             {
                 if (r.Id == room.Id)
                 {
                    r.OccupiedBeds.Add(student);
+            return true;
                 }
             }
-            return true;
+            return false;
         }
     }
 }
