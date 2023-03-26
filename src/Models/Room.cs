@@ -7,7 +7,7 @@ namespace HogwartsHouses.Models
     [System.Serializable]
     public class Room
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public int NumberOfBeds { get; set; }
         public List<Student> OccupiedBeds { get; set; }
         public bool RoomForBoys { get; set; }
@@ -20,5 +20,12 @@ namespace HogwartsHouses.Models
             OccupiedBeds = new List<Student>(NumberOfBeds);
            
         }
+
+        public Room()
+        {
+            
+        }
+
+  
     }
 }
