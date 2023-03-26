@@ -1,0 +1,12 @@
+<div class="listerBody">
+<style>
+    body {background-color: #721c24; vertical-align: center}
+    p    {color: antiquewhite; font-size: large; align-self: center; }
+</style>
+<ul style="list-style-type:none; padding: 7%; line-height: 300%;">
+@foreach (var obj in ViewData["All"].ToString().Split("</br>"))
+{
+    <li style="color: #95999c;font-size:30px">@obj</li>
+}
+</ul>
+</div>
