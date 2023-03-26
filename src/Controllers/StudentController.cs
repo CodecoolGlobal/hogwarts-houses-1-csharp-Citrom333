@@ -52,7 +52,6 @@ public class StudentController : Controller
         int id = student.StudentId;
         if (_studentService.GetAllStudents().Select(s => s.StudentId).Contains(id))
         {
-            Console.WriteLine(id);
             ViewData["result"] = _studentService.GetAllStudents().FirstOrDefault(student => student.StudentId == id)
                 .ToString();
             return View("Success");

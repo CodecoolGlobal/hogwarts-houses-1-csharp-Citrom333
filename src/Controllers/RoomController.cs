@@ -61,8 +61,6 @@ public class RoomController : Controller
     [HttpPost("NewRoomFromPostman")]
     public void AddNewRoom([FromBody] Tuple<int, bool> roomDetails)
     {
-        Console.WriteLine($"New room with {roomDetails.Item1} beds, for {(roomDetails.Item2 ? "boys" : "girls")}");
-
         _roomService.AddRoom(roomDetails);
     }
 
@@ -100,7 +98,6 @@ public class RoomController : Controller
     public IActionResult DeleteRoom(Room room)
     {
         int id = room.Id;
-        Console.WriteLine(id);
         if (_roomService.GetAllRooms().Select(r => r.Id).Contains(id))
         {
             ViewData["result"] = $"Room nr.{id} was deleted successfully";
@@ -109,7 +106,6 @@ public class RoomController : Controller
         }
         else
         {
-            Console.Write("Delete went wrong");
             return View("WrongFillOut");
         }
     }
@@ -134,7 +130,6 @@ public class RoomController : Controller
         }
         else
         {
-            Console.Write("Update went wrong");
             return View("WrongFillOut");
         }
     }
@@ -143,7 +138,6 @@ public class RoomController : Controller
     public void PutStudentToRoom(int id, int studentId)
     {
         _roomService.PutStudentToRoom(id, studentId);
-        Console.WriteLine($"{studentId} student is in {id} room");
     }
 
     [HttpGet("PutToRoom")]
@@ -166,7 +160,6 @@ public class RoomController : Controller
         else
 
         {
-            Console.WriteLine($"room {roomId}, student {studentId}");
             return View("WrongFillOut");
         }
     }
