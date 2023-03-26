@@ -2,6 +2,6 @@ namespace HogwartsHouses.Models.Types;
 
 public enum Gender
 {
-    Boy,
-    Girl
+    Boy=1,
+    Girl=2
 }

@@ -2,10 +2,10 @@
 {
     public enum PetType : byte
     {
-        None,
-        Cat,
-        Rat,
-        Frog,
-        Owl
+        None=1,
+        Cat=2,
+        Rat=3,
+        Frog=4,
+        Owl=5
     }
 }
